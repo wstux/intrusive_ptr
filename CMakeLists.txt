@@ -24,5 +24,5 @@ include(${COMMON_MAIN_CMAKE} PUBLIC)
 
 add_subdirectory(externals)
 add_subdirectory(libs/intrusive)
-#add_subdirectory(tests)
+add_subdirectory(tests)
 
