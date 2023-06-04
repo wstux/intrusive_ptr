@@ -53,5 +53,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic")
 
 add_subdirectory(libs/testing)
-add_subdirectory(tests)
+#add_subdirectory(tests)
 

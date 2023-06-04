@@ -38,14 +38,14 @@ $(1): $(1)/all
 $(1)/clean:
 	@rm -rf build_$(1)
 
-# Is not implemented now
-.PHONY: $(1)/all_ut_run
-$(1)/all_ut_run: build_$(1)/Makefile
+.PHONY: $(1)/test
+$(1)/test: $(1)/all
 	@make -j $(NJOB) -C build_$(1) test
 
-.PHONY: $(1)/coverage
-$(1)/coverage: #$(1)/all_ut_run
-	@echo "$(PATH)"
+# Is not implemented now
+#.PHONY: $(1)/coverage
+#$(1)/coverage: $(1)/all
+#	@echo "$(PATH)"
 
 endef
 

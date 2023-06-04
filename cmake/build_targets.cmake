@@ -142,10 +142,12 @@ macro(TestTarget TARGET_NAME)
     add_executable(${TARGET_NAME} ${${TARGET_NAME}_HEADERS}
                                   ${${TARGET_NAME}_SOURCES}
     )
-    add_test(${TARGET_NAME} ${TARGET_NAME})
-
     _configure_target(${TARGET_NAME})
-    enable_testing()
+
+    add_test(
+        NAME ${TARGET_NAME}
+        COMMAND $<TARGET_FILE:${TARGET_NAME}>
+    )
 
     CustomTarget(${TARGET_NAME}_run
         COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${TARGET_NAME}

@@ -7,7 +7,7 @@ TestTarget(ut_intrusive_ptr
         testing
 )
 
-TestTarget(perf_intrusive_ptr
+ExecTarget(perf_intrusive_ptr
     SOURCES
         perf_intrusive_ptr.cpp
     LIBRARIES
