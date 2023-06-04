@@ -27,6 +27,7 @@
 #include <testing/testdefs.h>
 #include <testing/utils.h>
 
+#include "intrusive/intrusive_counter.h"
 #include "intrusive/intrusive_ptr.h"
 
 namespace {

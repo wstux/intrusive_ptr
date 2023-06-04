@@ -31,18 +31,6 @@
 #include <memory>
 #include <type_traits>
 
-#define INIT_INTRUSIVE_PTR                                                      \
-    private:                                                                    \
-        unsigned int m_ref_counter = 0;                                         \
-        template<typename T> friend void ::wstux::intrusive_ptr_add_ref(T* ptr);\
-        template<typename T> friend void ::wstux::intrusive_ptr_release(T* ptr)
-
-#define INIT_ATOMIC_INTRUSIVE_PTR                                               \
-    private:                                                                    \
-        std::atomic_size_t m_ref_counter = 0;                                   \
-        template<typename T> friend void ::wstux::intrusive_ptr_add_ref(T* ptr);\
-        template<typename T> friend void ::wstux::intrusive_ptr_release(T* ptr)
-
 namespace wstux {
 namespace details {
 
@@ -53,20 +41,6 @@ struct __enable_if_convertible
 };
 
 } // namespace details
-
-template<typename T>
-inline void intrusive_ptr_add_ref(T* ptr)
-{
-    ++(ptr->m_ref_counter);
-}
-
-template<typename T>
-inline void intrusive_ptr_release(T* ptr)
-{
-    if (--ptr->m_ref_counter == 0) {
-        delete ptr;
-    }
-}
 
 template<typename T>
 class intrusive_ptr
